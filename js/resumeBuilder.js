@@ -80,12 +80,18 @@ var education = {
 	],
 	"onlinecourses" : [
 	{
-		"title" : "Javascript Essential Training",
-		"school" : "Udacity",
-		"Date" : " Dec '13"
+		"title" : "Data Science Essential Training",
+		"school" : "LinkedIn",
+		"Date" : " Dec '17"
+	},
+	{
+		"title" : "AWS Innovate MAchine Learning Course",
+		"school" : "Amazon Web Services",
+		"Date" : "Jan '18"
 	}
 	]
 };
+
 function displaywork()
 {
 	for(job in work.jobs)
@@ -131,7 +137,6 @@ function displaybio()
 displaywork();
 displaybio();
 
-
 function displayedu(){
 	for(ed in education.schools)
 	{
@@ -142,8 +147,20 @@ function displayedu(){
 		$(".education-entry:last").append(edloc);
 		var eddeg = HTMLschoolDegree.replace("%data%", education.schools[ed].degree);
 		$(".education-entry:last").append(eddeg);
+
+	}
+	$(".education-entry:last").append(HTMLonlineClasses);
+	for(ed in education.onlinecourses)
+	{
+		
+
+		var edtitle = HTMLonlineTitle.replace("%data%", education.onlinecourses[ed].title);
+		$(".education-entry:last").append(edtitle);
+		var edschool = HTMLonlineSchool.replace("%data%", education.onlinecourses[ed].school);
+		$(".education-entry:last").append(edschool);
 	}
 };
+
 displayedu();
 
 projects.display= function(){
