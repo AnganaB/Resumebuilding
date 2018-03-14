@@ -33,3 +33,20 @@ var work={
 	"curretnworkstatus" :"student",
 	"city": "Silchar"
 };
+var Cameron  = {};
+ var courses = 0;
+ Cameron.job = "Course-developer";
+
+ var makeCourse =  function() {
+ 	console.log("Made course");
+ }
+ while(Cameron.job === "Course-developer")
+ {
+ 	makeCourse();
+ 	courses = courses+1;
+ 	if(courses===10){
+ 		Cameron.job="Learning-specialist";
+ 	}
+ }
+
+ console.log("Cameron.job");

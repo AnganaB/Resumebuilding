@@ -19,17 +19,10 @@ var work = {
 		"date" : "Jan '18- Present"
 	}
 	]
-}
-for(job in work.jobs)
-{
-	$("#workExperience").append("HTMLworkStart");
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formemployertitle = formattedEmployer + formattedTitle;
-	$(".work-entry:last").append(formemployertitle);
-}
+};
 
-var project = {
+
+var projects = {
 	"projects" : [
 	{
 		"title" : "Library-book-management",
@@ -42,12 +35,14 @@ var project = {
 		"description" : "Developed a music- playiing application for users to select songs based on their moods"
 	}
 	]
-}
+};
 
 var bio={
-	"name":"Angana",
+	"name":"Angana Borah",
 	"age":23,
 	"role" : "Software-developer",
+	"biopic" : "images/hirist.jpg",
+	"welcomeMessage" : "Welcome to my page!",
 	"contacts" : {
 		"mobile" : "8638111577",
 		"email" : "anganaborah9@gmail.com",
@@ -55,12 +50,10 @@ var bio={
 		"instagram" : "https://www.instagram.com/sleepnindwoods/",
 		"location" : "Silicon-Valley, California"
 	},
-	"welcomeMessage" : "Welcome to my page!",
-    "skills" : ["awesomeness", "programming" , "javascript" , "sleeping" , "singing"],
-    "biopic" : "hirist.jpg"
-}
-$("#main").prepend(bio.role);
-$("#main").prepend(bio.name);
+	
+    "skills" : ["awesomeness", "programming" , "javascript" , "sleeping" , "singing"]
+    
+};
 var education = {
 	"schools" : [
 	{
@@ -92,37 +85,138 @@ var education = {
 		"Date" : " Dec '13"
 	}
 	]
+};
+function displaywork()
+{
+	for(job in work.jobs)
+{
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formemployertitle = formattedEmployer + formattedTitle;
+	$(".work-entry:last").append(formemployertitle);
+}
+};
+
+function displaybio()
+{
+	var formattedName  = HTMLheaderName.replace("%data%",bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+	var formattedmob = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formContact = HTMLcontactGeneric.replace("%contact%", "Contacts");
+	var formContact1 = formContact.replace("%data%", ":");
+	var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedgit = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedinsta = HTMLInsta.replace("%data%", bio.contacts.instagram);
+	var loc = HTMLlocation.replace("%data%", bio.contacts.location);
+	
+	$("#header").prepend(formattedRole);
+	$("#header").prepend(formattedName);
+	
+	
+	$("#topContacts").append(formContact1);
+	$("#topContacts").append(formattedmob);
+	$("#topContacts").append(formattedemail);
+	$("#topContacts").append(formattedgit);
+	$("#topContacts").append(formattedinsta);
+	$("#topContacts").append(loc);
+	var pic = HTMLbioPic.replace("%data%", bio.biopic);
+	var mes = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#header").append(mes);
+	$("#header").append(pic);
+	
+
 }
 
+displaywork();
+displaybio();
+
+
+function displayedu(){
+	for(ed in education.schools)
+	{
+		$("#education").append(HTMLschoolStart);
+		var edname = HTMLschoolName.replace("%data%", education.schools[ed].name);
+		$(".education-entry:last").append(edname);
+		var edloc = HTMLschoolLocation.replace("%data%", education.schools[ed].location);
+		$(".education-entry:last").append(edloc);
+		var eddeg = HTMLschoolDegree.replace("%data%", education.schools[ed].degree);
+		$(".education-entry:last").append(eddeg);
+	}
+};
+displayedu();
+
+projects.display= function(){
+	for(project in projects.projects)
+	{
+		$("#projects").append(HTMLprojectStart);
+		var ftitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(ftitle);
+		var fdates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(fdates);
+		var fdescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(fdescription);
+	}
+}
+projects.display();
+
+
+//function displayskills(){
  if(bio.skills.length>0)
     {
       $("#header").append(HTMLskillsStart);
-      var formattedName  = HTMLskillsStart.replace("%data%",bio.skills[0]);
+      var formattedName  = HTMLskills.replace("%data%",bio.skills[0]);
       $("#skills").append(formattedName);
-      formattedName  = HTMLskillsStart.replace("%data%",bio.skills[1]);
+      formattedName  = HTMLskills.replace("%data%",bio.skills[1]);
       $("#skills").append(formattedName);
-      var formattedName  = HTMLskillsStart.replace("%data%",bio.skills[2]);
+      var formattedName  = HTMLskills.replace("%data%",bio.skills[2]);
       $("#skills").append(formattedName);
-      var formattedName  = HTMLskillsStart.replace("%data%",bio.skills[3]);
+      var formattedName  = HTMLskills.replace("%data%",bio.skills[3]);
       $("#skills").append(formattedName);
-      var formattedName  = HTMLskillsStart.replace("%data%",bio.skills[4]);
+      var formattedName  = HTMLskills.replace("%data%",bio.skills[4]);
       $("#skills").append(formattedName);
     }
+   //};
+  // displayskills();
 
- var Cameron  = {};
- var courses = 0;
- Cameron.job = "Course-developer";
+ 
 
- var makeCourse =  function() {
- 	console.log("Made course");
- }
- while(Cameron.job === "Course-developer")
- {
- 	makeCourse();
- 	courses = courses+1;
- 	if(courses===10){
- 		Cameron.job="Learning-specialist";
- 	}
- }
+//worked
 
- console.log("Cameron.job");
+ $(document).click(function(loc){
+ 	var x= loc.pageX;
+ 	var y = loc.pageY;
+ 	logClicks(x,y);
+ });
+
+var work_obj;
+function locationizer(work_obj) {
+    var array = [];
+    var i;
+    for(i=0;i<work_obj.jobs.length;i++){
+        array.push(work_obj.jobs.location);
+    }
+    return array;
+}
+
+console.log(locationizer(work));
+
+
+function inName(){
+
+	var finalName= bio.name;
+	var s = bio.name.split(" ");
+	s[1]= s[1].toUpperCase();
+	s[0]=s[0].slice(0,1).toUpperCase() + s[0].slice(1).toLowerCase();
+	finalName = s.join(" ");
+	return finalName;
+
+}
+
+inName();
+
+$("#main").append(internationalizeButton);
+//worked
+$("#mapDiv").append(googleMap);
+
+

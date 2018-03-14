@@ -1,4 +1,6 @@
-body,
+body {
+    background-color: lightblue;
+}
 div,
 ul,
 li,
@@ -26,9 +28,10 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: rgb(106, 90, 205);
   line-height: 48px;
   display: inline;
+  font-family: Arial black;
 }
 
 h2 {
@@ -91,16 +94,22 @@ a {
   margin-top: 10px;
   display: block;
 }
+.sp{
+  font-family: Arial Black;
+  color: rgb(132, 137, 218);
+}
 
 .welcome-message {
-  font-style: italic;
+  font-family: arial black;
+  font-style: bold;
   font-size: 18px;
-  color: #f3f3f3;
+  color: rgb(225, 144, 158);
   line-height: 28px;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: rgb(184, 109, 140);
+  font-family: algerian;
   display: none;
 }
 
@@ -109,12 +118,13 @@ a {
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: rgb(184, 109, 140);
+  font-family: algerian;
 }
-
 .white-text {
   font-weight: bold;
-  color: #fff;
+  font-style: italic;
+  color: rgb(232, 109, 140);
 }
 
 .gray {
@@ -129,7 +139,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: rgb(232, 255, 255);
 }
 
 .flex-box {
@@ -139,6 +149,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  
 }
 
 .flex-column {
@@ -147,6 +158,7 @@ a {
   flex-wrap: nowrap;
   padding: 10px;
 }
+
 
 .center-content {
   padding: 2.5% 5%;
